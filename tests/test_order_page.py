@@ -11,10 +11,10 @@ class TestOrderPage:
     @pytest.mark.parametrize('button_method, data_order', [('click_first_button', OrderData.FIRST_ORDER),
                                                            ('click_second_button', OrderData.SECOND_ORDER)])
     def test_make_an_order(self, driver, data_order, button_method):
-        page = OrderPage()
-        page.open_browser(driver)
+        page = OrderPage(driver)
+        page.open_browser()
         getattr(page, button_method)(driver)
-        page.user_rent_order(driver, **data_order)
-        page.confirmation_window(driver)
+        page.user_rent_order()
+        page.confirmation_window()
 
 
