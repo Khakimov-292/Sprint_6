@@ -33,10 +33,16 @@ class BasePage:
         WebDriverWait(driver, 10).until(
             eс.url_to_be(Urls.DZEN_URL))
 
-    @allure.step("Проверка ссылки 'Дзен'")
-    def should_dzen_url(self, driver):
-        assert driver.current_url == Urls.DZEN_URL
+    @allure.step("Ожидание пока элемент будет кликабельным")
+    def wait_for_clickable(self, locator):
+        return WebDriverWait(self.driver, 3).until(ec.element_to_be_clickable(locator))
 
-    @allure.step("Проверка ссылки логотипа 'Самокат'")
-    def should_main_page_url(self, driver):
-        assert driver.current_url == Urls.MAIN_PAGE_URL
+    @allure.step("Поиск элемента")
+    def find_element(self, locator):
+        return self.driver.find_element(*locator)
+
+    @allure.step("Переход до нужного элемента")
+    def go_to_element(self, locator):
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
