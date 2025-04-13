@@ -1,4 +1,5 @@
 import allure
+
 from data import Urls
 from locators.base_page_locators import BasePageLocators
 from selenium.webdriver.support.ui import WebDriverWait
@@ -45,4 +46,8 @@ class BasePage:
     def go_to_element(self, locator):
         element = self.find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    @allure.step("Проверка текущего адреса")
+    def receiving_current_url(self):
+        return self.driver.current_url
 
