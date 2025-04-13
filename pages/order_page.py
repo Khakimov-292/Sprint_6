@@ -1,7 +1,6 @@
 import allure
 from locators.order_page_locators import OrderLocators
 from selenium.webdriver.common.keys import Keys
-from conftest import driver
 from pages.base_page import BasePage
 
 
@@ -72,7 +71,7 @@ class OrderPage(BasePage):
 
     @allure.step("Проверка текста окна подтверждения заказа")
     def confirmation_window(self):
-        text = BasePage.find_element(*OrderLocators.ORDER_COMPLETED).text
+        text = self.find_element(*OrderLocators.ORDER_COMPLETED).text
         assert 'Заказ оформлен' in text
 
     @allure.step("Весь сценарий сценарий")
