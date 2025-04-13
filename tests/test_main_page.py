@@ -13,7 +13,7 @@ class TestMainPage:
         page = MainPage(driver)
         page.open_browser()
         page.scroll_to_faq()
-        answer_text = page.get_answers(driver, index)
-        question_text = page.get_question(driver, index)
+        answer_text = page.get_answers(index)
+        question_text = page.get_question(index)
         assert answer_text == answer
         assert question_text == question
