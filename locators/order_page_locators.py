@@ -18,5 +18,6 @@ class OrderLocators:
     GREY_COLOR_CHECKBOX = [By.XPATH, '//label[@for="grey"]']
     COMMENT = [By.XPATH, "//input[@placeholder='Комментарий для курьера']"]
     ORDER_BUTTON = [By.XPATH, '//div[@class="Order_Buttons__1xGrp"]/button[text()="Заказать"]']
+    ORDER_STATUS = [By.XPATH, ".//div[contains(@class, 'Order_ModalHeader')]"]
     YES_BUTTON = [By.XPATH, ".//button[text()='Да']"]
     ORDER_COMPLETED = [By.XPATH, '//div[contains(text(), "Заказ оформлен")]']
